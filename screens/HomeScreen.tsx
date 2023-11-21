@@ -6,6 +6,7 @@ import {
   FlatList,
   SafeAreaView,
   ScrollView,
+  StyleSheet,
 } from 'react-native';
 import Category from '../components/Category';
 
@@ -65,12 +66,7 @@ const Data: CategoryType[] = [
 function HomeScreen(): JSX.Element {
   return (
     <ScrollView bounces={false}>
-      <View
-        style={{
-          flexDirection: 'row',
-          flexWrap: 'wrap',
-          justifyContent: 'center',
-        }}>
+      <View style={styles.container}>
         {Data.map(data => (
           <Category item={data} key={data.id} />
         ))}
@@ -78,5 +74,13 @@ function HomeScreen(): JSX.Element {
     </ScrollView>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+  },
+});
 
 export default HomeScreen;

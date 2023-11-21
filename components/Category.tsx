@@ -5,6 +5,7 @@ import {
   ImageSourcePropType,
   Image,
   TouchableOpacity,
+  StyleSheet,
 } from 'react-native';
 
 interface CategoryType {
@@ -20,35 +21,38 @@ interface CategoryProps {
 
 const Category: React.FC<CategoryProps> = ({item}): JSX.Element => {
   return (
-    <TouchableOpacity
-      activeOpacity={0.8}
-      style={{
-        padding: 10,
-        justifyContent: 'center',
-        alignItems: 'center',
-        position: 'relative',
-      }}>
-      <Image
-        source={item.imageUrl}
-        style={{
-          height: 200,
-          width: 150,
-          objectFit: 'cover',
-          borderRadius: 10,
-        }}
-      />
-      <View
-        style={{
-          backgroundColor: item.color,
-          padding: 8,
-          position: 'absolute',
-          bottom: 15,
-          borderRadius: 10,
-        }}>
-        <Text style={{color: 'white', fontWeight: 'bold'}}>{item.name}</Text>
+    <TouchableOpacity activeOpacity={0.8} style={styles.container}>
+      <Image source={item.imageUrl} style={styles.image} />
+      <View style={[styles.textContainer, {backgroundColor: item.color}]}>
+        <Text style={styles.text}>{item.name}</Text>
       </View>
     </TouchableOpacity>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    padding: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'relative',
+  },
+  image: {
+    height: 200,
+    width: 150,
+    objectFit: 'cover',
+    borderRadius: 10,
+  },
+  textContainer: {
+    padding: 8,
+    position: 'absolute',
+    bottom: 15,
+    borderRadius: 10,
+  },
+  text: {
+    color: 'white',
+    fontWeight: 'bold',
+  },
+});
 
 export default Category;
