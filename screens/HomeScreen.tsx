@@ -9,6 +9,7 @@ import {
   StyleSheet,
 } from 'react-native';
 import Category from '../components/Category';
+import Header from '../components/Header';
 
 interface CategoryType {
   id: number;
@@ -65,13 +66,16 @@ const Data: CategoryType[] = [
 
 function HomeScreen(): JSX.Element {
   return (
-    <ScrollView bounces={false}>
-      <View style={styles.container}>
-        {Data.map(data => (
-          <Category item={data} key={data.id} />
-        ))}
-      </View>
-    </ScrollView>
+    <>
+      <Header />
+      <ScrollView bounces={false}>
+        <View style={styles.container}>
+          {Data.map(data => (
+            <Category item={data} key={data.id} />
+          ))}
+        </View>
+      </ScrollView>
+    </>
   );
 }
 
