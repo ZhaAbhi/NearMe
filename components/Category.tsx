@@ -1,11 +1,18 @@
 import React from 'react';
-import {Text, View, ImageSourcePropType, Image} from 'react-native';
+import {
+  Text,
+  View,
+  ImageSourcePropType,
+  Image,
+  TouchableOpacity,
+} from 'react-native';
 
 interface CategoryType {
   id: number;
   name: string;
   description: string;
   imageUrl: ImageSourcePropType;
+  color: string;
 }
 interface CategoryProps {
   item: CategoryType;
@@ -13,7 +20,14 @@ interface CategoryProps {
 
 const Category: React.FC<CategoryProps> = ({item}): JSX.Element => {
   return (
-    <View style={{padding: 10, justifyContent: 'center', alignItems: 'center', position:"relative"}}>
+    <TouchableOpacity
+      activeOpacity={0.8}
+      style={{
+        padding: 10,
+        justifyContent: 'center',
+        alignItems: 'center',
+        position: 'relative',
+      }}>
       <Image
         source={item.imageUrl}
         style={{
@@ -23,10 +37,17 @@ const Category: React.FC<CategoryProps> = ({item}): JSX.Element => {
           borderRadius: 10,
         }}
       />
-      <View style={{backgroundColor: 'grey', padding: 8, position:"absolute", bottom:15, borderRadius:25}}>
-        <Text style={{color:"white", fontWeight:"bold"}}>{item.name}</Text>
+      <View
+        style={{
+          backgroundColor: item.color,
+          padding: 8,
+          position: 'absolute',
+          bottom: 15,
+          borderRadius: 10,
+        }}>
+        <Text style={{color: 'white', fontWeight: 'bold'}}>{item.name}</Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 
