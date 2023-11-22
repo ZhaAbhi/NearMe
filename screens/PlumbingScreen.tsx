@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  SafeAreaView,
-  Text,
-  View,
-  TextInput,
-  TouchableOpacity,
-} from 'react-native';
+import {SafeAreaView, Text, TouchableOpacity} from 'react-native';
 
 interface PlumbingScreenProps {
   route: any;

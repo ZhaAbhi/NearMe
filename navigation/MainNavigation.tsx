@@ -1,5 +1,4 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import HomeScreen from '../screens/HomeScreen';
 import SellServiceScreen from '../screens/SellServiceScreen';
 import ServiceStatusScreen from '../screens/ServiceStatusScreen';
 import HomeIcon from 'react-native-vector-icons/Entypo';
