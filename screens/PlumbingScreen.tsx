@@ -82,6 +82,9 @@ const PlumbingScreen: React.FC<PlumbingScreenProps> = ({
               />
             </View>
           </View>
+          <TouchableOpacity activeOpacity={0.8} style={styles.buttonContainer}>
+            <Text style={styles.button}>Request For Service</Text>
+          </TouchableOpacity>
         </View>
       </View>
     </SafeAreaView>
@@ -91,10 +94,10 @@ const PlumbingScreen: React.FC<PlumbingScreenProps> = ({
 const styles = StyleSheet.create({
   container: {
     padding: 5,
-    height: '45%',
+    height: '53%',
     borderBottomWidth: 3.5,
-    borderStartWidth: 2,
-    borderEndWidth: 2,
+    borderStartWidth: 1,
+    borderEndWidth: 1,
     borderColor: 'lightgrey',
     borderBottomStartRadius: 25,
     borderBottomEndRadius: 25,
@@ -112,18 +115,18 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   backIcon: {
-    height: 40,
-    width: 40,
+    height: 30,
+    width: 30,
     backgroundColor: '#b88804',
     borderRadius: 20,
     alignItems: 'center',
     justifyContent: 'center',
   },
   titleContainer: {
+    flex: 1,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    marginLeft: '16%',
   },
   title: {
     fontSize: 18,
@@ -156,6 +159,20 @@ const styles = StyleSheet.create({
     borderColor: 'black',
     borderRadius: 25,
     paddingLeft: 30,
+  },
+  buttonContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 10,
+    backgroundColor: '#ce8ff2',
+    marginTop: 20,
+    borderRadius: 25,
+  },
+  button: {
+    color: 'white',
+    fontSize: 17,
+    fontWeight: 'bold',
+    letterSpacing: 0.3,
   },
 });
 
