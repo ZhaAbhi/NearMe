@@ -12,6 +12,7 @@ import {
 import LoacationPin from 'react-native-vector-icons/Entypo';
 import BackIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import AppBottomSheet from '../components/AppBottomSheet';
+import AppMapView from '../components/AppMapView';
 
 interface PlumberType {
   id: number;
@@ -97,6 +98,7 @@ const PlumbingScreen: React.FC<PlumbingScreenProps> = ({
           <View style={styles.horizontalline}></View>
         </View>
       </SafeAreaView>
+      <AppMapView />
       <AppBottomSheet plumberData={Data} />
     </>
   );
@@ -105,7 +107,6 @@ const PlumbingScreen: React.FC<PlumbingScreenProps> = ({
 const styles = StyleSheet.create({
   container: {
     padding: 5,
-    height: '53%',
   },
   header: {
     flexDirection: 'row',
@@ -172,7 +173,7 @@ const styles = StyleSheet.create({
     letterSpacing: 0.3,
   },
   horizontalline: {
-    height: 2,
+    height: 1.5,
     width: '100%',
     backgroundColor: 'lightgrey',
     marginTop: 10,
@@ -183,7 +184,6 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.3,
     shadowRadius: 4.5,
-
     elevation: 2,
   },
 });
