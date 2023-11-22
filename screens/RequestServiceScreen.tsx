@@ -24,6 +24,7 @@ const RequestServiceScreen: React.FC<RequestServiceScreenProps> = ({
   navigation,
 }): JSX.Element => {
   const [uploadImage, setUploadImage] = useState(undefined);
+  const [buttonPress, setButtonPress] = useState(false);
 
   console.log(uploadImage);
 
@@ -104,17 +105,20 @@ const RequestServiceScreen: React.FC<RequestServiceScreenProps> = ({
         </View>
         <View style={{alignItems: 'center'}}>
           <TouchableOpacity
+            onPress={() => setButtonPress(!buttonPress)}
             activeOpacity={0.8}
-            style={{
-              marginTop: 20,
-              backgroundColor: '#ce8ff2',
-              padding: 10,
-              paddingLeft: 50,
-              paddingRight: 50,
-              borderRadius: 20,
-            }}>
+            style={[
+              {
+                marginTop: 20,
+                backgroundColor: buttonPress ? 'green' : '#ce8ff2',
+                padding: 10,
+                paddingLeft: 50,
+                paddingRight: 50,
+                borderRadius: 20,
+              },
+            ]}>
             <Text style={{fontSize: 17, color: 'white', fontWeight: 'bold'}}>
-              Send Request
+              {`${buttonPress ? 'Request Sent' : 'Send Request'}`}
             </Text>
           </TouchableOpacity>
         </View>
