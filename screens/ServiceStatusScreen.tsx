@@ -6,7 +6,13 @@ const ServiceStatusScreen = (): JSX.Element => {
   return (
     <SafeAreaView>
       <View style={{padding: 10}}>
-        <Text style={{fontSize: 20, color: 'black', letterSpacing: 0.3}}>
+        <Text
+          style={{
+            fontSize: 20,
+            color: 'black',
+            letterSpacing: 0.3,
+            marginBottom: 10,
+          }}>
           Recent Requested Order
         </Text>
         <View style={{marginTop: 20}}>
