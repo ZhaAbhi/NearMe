@@ -1,10 +1,29 @@
 import React from 'react';
-import {SafeAreaView, Text, View, TextInput} from 'react-native';
+import {
+  SafeAreaView,
+  Text,
+  View,
+  TextInput,
+  TouchableOpacity,
+} from 'react-native';
 
-const PlumbingScreen = (): JSX.Element => {
+interface PlumbingScreenProps {
+  route: any;
+  navigation: any;
+}
+
+const PlumbingScreen: React.FC<PlumbingScreenProps> = ({
+  navigation,
+  route,
+}): JSX.Element => {
+  const {description} = route.params;
   return (
     <SafeAreaView>
       <Text>This is the plumbing screen</Text>
+      <Text>{description}</Text>
+      <TouchableOpacity onPress={() => navigation.goBack()}>
+        <Text>Go Back</Text>
+      </TouchableOpacity>
     </SafeAreaView>
   );
 };

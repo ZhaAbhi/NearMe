@@ -1,13 +1,5 @@
 import React from 'react';
-import {
-  Text,
-  View,
-  ImageSourcePropType,
-  FlatList,
-  SafeAreaView,
-  ScrollView,
-  StyleSheet,
-} from 'react-native';
+import {View, ImageSourcePropType, ScrollView, StyleSheet} from 'react-native';
 import Category from '../components/Category';
 import Header from '../components/Header';
 
@@ -64,20 +56,33 @@ const Data: CategoryType[] = [
   },
 ];
 
-function HomeScreen(): JSX.Element {
+interface HomeScreenProps {
+  navigation: any;
+}
+
+const HomeScreen: React.FC<HomeScreenProps> = ({navigation}): JSX.Element => {
+  const NavigateToCategoryName = (name: string, description?: string) => {
+    navigation.navigate(name, {description});
+  };
   return (
     <>
       <Header />
       <ScrollView bounces={false} showsVerticalScrollIndicator={false}>
         <View style={styles.container}>
           {Data.map(data => (
-            <Category item={data} key={data.id} />
+            <Category
+              item={data}
+              key={data.id}
+              onPress={() =>
+                NavigateToCategoryName(data.name, data.description)
+              }
+            />
           ))}
         </View>
       </ScrollView>
     </>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {

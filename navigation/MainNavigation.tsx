@@ -5,6 +5,7 @@ import ServiceStatusScreen from '../screens/ServiceStatusScreen';
 import HomeIcon from 'react-native-vector-icons/Entypo';
 import SellerIcon from 'react-native-vector-icons/Foundation';
 import StatusIcon from 'react-native-vector-icons/MaterialCommunityIcons';
+import HomeStackNavigation from './HomeStackNavigation';
 
 const MyTab = createBottomTabNavigator();
 
@@ -17,7 +18,7 @@ const MainNavigation = (): JSX.Element => {
       }}>
       <MyTab.Screen
         name="Home"
-        component={HomeScreen}
+        component={HomeStackNavigation}
         options={{
           tabBarIcon: ({size, color}) => (
             <HomeIcon name="home" size={size} color={color} />

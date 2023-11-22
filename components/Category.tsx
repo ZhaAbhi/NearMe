@@ -17,11 +17,15 @@ interface CategoryType {
 }
 interface CategoryProps {
   item: CategoryType;
+  onPress: any;
 }
 
-const Category: React.FC<CategoryProps> = ({item}): JSX.Element => {
+const Category: React.FC<CategoryProps> = ({item, onPress}): JSX.Element => {
   return (
-    <TouchableOpacity activeOpacity={0.8} style={styles.container}>
+    <TouchableOpacity
+      activeOpacity={0.8}
+      style={styles.container}
+      onPress={onPress}>
       <Image source={item.imageUrl} style={styles.image} />
       <View style={[styles.textContainer, {backgroundColor: item.color}]}>
         <Text style={styles.text}>{item.name}</Text>
