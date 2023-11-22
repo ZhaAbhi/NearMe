@@ -91,6 +91,7 @@ const PlumbingScreen: React.FC<PlumbingScreenProps> = ({
             </View>
             <TouchableOpacity
               activeOpacity={0.8}
+              onPress={() => navigation.navigate('PlumbingRequest')}
               style={styles.buttonContainer}>
               <Text style={styles.button}>Request For Service</Text>
             </TouchableOpacity>

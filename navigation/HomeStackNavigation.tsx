@@ -5,6 +5,7 @@ import GroceryScreen from '../screens/GroceryScreen';
 import PharmaceuticalScreen from '../screens/PharmaceuticalScreen';
 import ElectricalScreen from '../screens/ElectricalScreen';
 import GardeningScreen from '../screens/GardeningScreen';
+import RequestServiceScreen from '../screens/RequestServiceScreen';
 
 const HomeStack = createStackNavigator();
 
@@ -20,6 +21,10 @@ const HomeStackNavigation = (): JSX.Element => {
       />
       <HomeStack.Screen name="Electricians" component={ElectricalScreen} />
       <HomeStack.Screen name="Gardening" component={GardeningScreen} />
+      <HomeStack.Screen
+        name="PlumbingRequest"
+        component={RequestServiceScreen}
+      />
     </HomeStack.Navigator>
   );
 };
