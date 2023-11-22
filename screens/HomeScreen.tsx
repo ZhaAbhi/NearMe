@@ -68,7 +68,7 @@ function HomeScreen(): JSX.Element {
   return (
     <>
       <Header />
-      <ScrollView bounces={false}>
+      <ScrollView bounces={false} showsVerticalScrollIndicator={false}>
         <View style={styles.container}>
           {Data.map(data => (
             <Category item={data} key={data.id} />
