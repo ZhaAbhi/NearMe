@@ -25,29 +25,62 @@ const AppCard: React.FC<AppCardPropType> = ({item}): JSX.Element => {
     return stars;
   };
   return (
-    <View
-      style={{
-        flex: 1,
-        marginVertical: 10,
-        padding: 5,
-      }}>
-      <View style={{flex: 1, flexDirection: 'row', alignItems: 'center'}}>
-        <Image
-          source={item.avatar}
-          style={{height: 50, width: 50, borderRadius: 25, objectFit: 'cover'}}
-        />
-        <View style={{marginLeft: 5}}>
-          <Text style={{fontSize: 16}}>{item.name}</Text>
-          <Text style={{fontSize: 16, color: 'grey'}}>{item.distance}</Text>
+    <View style={styles.main}>
+      <View style={styles.secondary}>
+        <Image source={item.avatar} style={styles.avatar} />
+        <View style={styles.discriptionContainer}>
+          <Text style={styles.name}>{item.name}</Text>
+          <Text style={styles.distance}>{item.distance}</Text>
         </View>
-        <View style={{marginLeft: 'auto', padding: 5}}>
-          <View style={{flexDirection: 'row'}}>{renderStars(item.rating)}</View>
+        <View style={styles.ratingBox}>
+          <View style={styles.rating}>{renderStars(item.rating)}</View>
         </View>
       </View>
-      <View
-        style={{height: 0.5, backgroundColor: 'grey', marginTop: '2%'}}></View>
+      <View style={styles.seperator}></View>
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  main: {
+    flex: 1,
+    marginVertical: 10,
+    padding: 5,
+  },
+  secondary: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  avatar: {
+    height: 40,
+    width: 40,
+    borderRadius: 20,
+    objectFit: 'cover',
+  },
+  discriptionContainer: {
+    marginLeft: 5,
+  },
+  name: {
+    color: 'black',
+    fontSize: 16,
+  },
+  distance: {
+    fontSize: 16,
+    color: 'grey',
+  },
+  ratingBox: {
+    marginLeft: 'auto',
+    padding: 5,
+  },
+  rating: {
+    flexDirection: 'row',
+  },
+  seperator: {
+    height: 0.5,
+    backgroundColor: 'grey',
+    marginTop: '2%',
+  },
+});
 
 export default AppCard;
