@@ -11,12 +11,14 @@ import {
 
 import LoacationPin from 'react-native-vector-icons/Entypo';
 import BackIcon from 'react-native-vector-icons/MaterialCommunityIcons';
+import AppBottomSheet from '../components/AppBottomSheet';
 
 interface PlumberType {
   id: number;
   name: string;
   avatar: ImageSourcePropType;
   rating: number;
+  distance: string;
 }
 
 interface PlumbingScreenProps {
@@ -30,18 +32,21 @@ const Data: PlumberType[] = [
     name: 'Kamlesh Gupta',
     avatar: require('../assets/NearMe-Plumber-Assets/Kamlesh.jpeg'),
     rating: 4,
+    distance: '5 km away',
   },
   {
     id: 2,
     name: 'Sumit Shah',
     avatar: require('../assets/NearMe-Plumber-Assets/sumit.jpeg'),
     rating: 5,
+    distance: '2 km away',
   },
   {
     id: 3,
     name: 'Aman Mandal',
     avatar: require('../assets/NearMe-Plumber-Assets/Aman.jpeg'),
     rating: 5,
+    distance: '4 km away',
   },
 ];
 
@@ -51,43 +56,49 @@ const PlumbingScreen: React.FC<PlumbingScreenProps> = ({
 }): JSX.Element => {
   const {description} = route.params;
   return (
-    <SafeAreaView>
-      <View style={styles.container}>
-        <View style={styles.header}>
-          <TouchableOpacity
-            onPress={() => navigation.goBack()}
-            style={styles.backIcon}>
-            <BackIcon name="keyboard-backspace" size={25} color="white" />
-          </TouchableOpacity>
-          <View style={styles.titleContainer}>
-            <Text style={styles.title}>Search For </Text>
-            <Text style={styles.title}>Plumbers</Text>
-          </View>
-        </View>
-        <View style={styles.inputContainer}>
-          <View>
-            <Text style={styles.currentLocationTitle}>
-              Your Current Location
-            </Text>
-            <View style={styles.currentLocationContainer}>
-              <LoacationPin
-                name="location-pin"
-                size={25}
-                style={styles.locationpin}
-              />
-              <TextInput
-                style={styles.input}
-                placeholder="Kathmandu, Nepal"
-                placeholderTextColor="black"
-              />
+    <>
+      <SafeAreaView>
+        <View style={styles.container}>
+          <View style={styles.header}>
+            <TouchableOpacity
+              onPress={() => navigation.goBack()}
+              style={styles.backIcon}>
+              <BackIcon name="keyboard-backspace" size={25} color="white" />
+            </TouchableOpacity>
+            <View style={styles.titleContainer}>
+              <Text style={styles.title}>Search For </Text>
+              <Text style={styles.title}>Plumbers</Text>
             </View>
           </View>
-          <TouchableOpacity activeOpacity={0.8} style={styles.buttonContainer}>
-            <Text style={styles.button}>Request For Service</Text>
-          </TouchableOpacity>
+          <View style={styles.inputContainer}>
+            <View>
+              <Text style={styles.currentLocationTitle}>
+                Your Current Location
+              </Text>
+              <View style={styles.currentLocationContainer}>
+                <LoacationPin
+                  name="location-pin"
+                  size={25}
+                  style={styles.locationpin}
+                />
+                <TextInput
+                  style={styles.input}
+                  placeholder="Kathmandu, Nepal"
+                  placeholderTextColor="black"
+                />
+              </View>
+            </View>
+            <TouchableOpacity
+              activeOpacity={0.8}
+              style={styles.buttonContainer}>
+              <Text style={styles.button}>Request For Service</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.horizontalline}></View>
         </View>
-      </View>
-    </SafeAreaView>
+      </SafeAreaView>
+      <AppBottomSheet plumberData={Data} />
+    </>
   );
 };
 
@@ -95,20 +106,6 @@ const styles = StyleSheet.create({
   container: {
     padding: 5,
     height: '53%',
-    borderBottomWidth: 3.5,
-    borderStartWidth: 1,
-    borderEndWidth: 1,
-    borderColor: 'lightgrey',
-    borderBottomStartRadius: 25,
-    borderBottomEndRadius: 25,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 4,
-    },
-    shadowOpacity: 0.3,
-    shadowRadius: 4.65,
-    elevation: 8,
   },
   header: {
     flexDirection: 'row',
@@ -173,6 +170,21 @@ const styles = StyleSheet.create({
     fontSize: 17,
     fontWeight: 'bold',
     letterSpacing: 0.3,
+  },
+  horizontalline: {
+    height: 2,
+    width: '100%',
+    backgroundColor: 'lightgrey',
+    marginTop: 10,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.3,
+    shadowRadius: 4.5,
+
+    elevation: 2,
   },
 });
 
